@@ -44,7 +44,7 @@ fn main() {
         Ok(v) => port = v,
         Err(_e) => port = "8080".to_string()
     }
-    let listener = TcpListener::bind(format!("127.0.0.1:{}", port)).unwrap();
+    let listener = TcpListener::bind(format!("0.0.0.0:{}", port)).unwrap();
 
     for stream in listener.incoming() {
         match stream {

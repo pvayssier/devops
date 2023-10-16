@@ -1,0 +1,10 @@
+FROM rust
+COPY . /var/www/TP1
+WORKDIR /var/www/TP1
+RUN cargo build --release
+
+
+FROM debian
+COPY --from=0 /var/www/TP1/target/release/wik_dps_tp01 /var/www/TP1/target/release/wik_dps_tp01
+WORKDIR /var/www/TP1/target/release
+CMD ["./wik_dps_tp01"]
