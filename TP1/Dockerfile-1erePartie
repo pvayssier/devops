@@ -1,7 +1,7 @@
 FROM rust
 COPY . /var/www/TP1
 RUN useradd -m rust
-RUN chown -R rust:rust /var/app
+RUN chown -R rust:rust /var/www/TP1
 USER rust
 WORKDIR /var/www/TP1
 CMD ["cargo", "run"]
